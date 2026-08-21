@@ -13,6 +13,7 @@ const TONE_MAP: Record<ProductCategory, 'teal' | 'gold' | 'jaggery'> = {
   ghee: 'gold',
   jaggery: 'jaggery',
   'nuts-snacks': 'gold',
+  pulses: 'jaggery',
 };
 
 const BG_TINT_MAP: Record<ProductCategory, string> = {
@@ -20,6 +21,7 @@ const BG_TINT_MAP: Record<ProductCategory, string> = {
   ghee: 'bg-gold-light',
   jaggery: 'bg-jaggery-light',
   'nuts-snacks': 'bg-gold-light',
+  pulses: 'bg-jaggery-light',
 };
 
 export function ProductCard({ product, variant = 'default' }: ProductCardProps) {

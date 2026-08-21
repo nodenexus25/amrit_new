@@ -17,28 +17,48 @@ export default function About() {
         aria-labelledby="about-hero-heading"
       >
         <div
-          className="absolute inset-0 -z-10 bg-gradient-to-b from-teal-light/40 via-cream to-cream"
+          className="absolute inset-0 -z-10 bg-gradient-to-b from-teal-light/50 via-cream to-cream"
           aria-hidden="true"
         />
+        <div
+          className="absolute inset-0 -z-10 opacity-[0.07] mix-blend-multiply"
+          aria-hidden="true"
+          style={{
+            backgroundImage: `url(/bg.png)`,
+            backgroundSize: '520px 520px',
+            backgroundRepeat: 'repeat',
+          }}
+        />
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pt-14 pb-12 lg:pt-20 lg:pb-16">
-          <div className="flex flex-col gap-4 max-w-3xl">
-            <p className="text-xs font-semibold tracking-[0.16em] uppercase text-teal-deep">
-              About Us
-            </p>
-            <h1
-              id="about-hero-heading"
-              className="text-4xl sm:text-5xl lg:text-[56px] font-bold tracking-tight text-ink leading-[1.05]"
-            >
-              A name Maharashtra has
-              <br className="hidden sm:block" />
-              <span className="text-teal-deep">trusted for 64 years.</span>
-            </h1>
-            <p className="text-base sm:text-lg text-ink/70 leading-relaxed max-w-2xl">
-              Amrut is the flagship consumer brand of Sahakar Maharishi
-              Shankarrao Kohle Sahakari Sakhar Karkhana Ltd. — clean, clear,
-              hygienic, high-quality sugar and more, produced with care at
-              Kopargaon, Maharashtra.
-            </p>
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+            <div className="lg:col-span-8 flex flex-col gap-4 max-w-3xl">
+              <p className="text-xs font-semibold tracking-[0.16em] uppercase text-teal-deep">
+                About Us
+              </p>
+              <h1
+                id="about-hero-heading"
+                className="text-4xl sm:text-5xl lg:text-[56px] font-bold tracking-tight text-ink leading-[1.05]"
+              >
+                A name Maharashtra has
+                <br className="hidden sm:block" />
+                <span className="text-teal-deep">trusted for 64 years.</span>
+              </h1>
+              <p className="text-base sm:text-lg text-ink/70 leading-relaxed max-w-2xl">
+                Amrut is the flagship consumer brand of Sahakar Maharishi
+                Shankarrao Kohle Sahakari Sakhar Karkhana Ltd. — clean, clear,
+                hygienic, high-quality sugar, jaggery, ghee and Amrut Farms
+                pulses, produced with care at Kopargaon, Maharashtra.
+              </p>
+            </div>
+            <div className="lg:col-span-4 flex items-end justify-center">
+              <div className="relative inline-flex items-center justify-center p-6 bg-white/80 ring-1 ring-ink/5">
+                <img
+                  src="/Sanjivani kARKHANA LOGO 2 (1).png"
+                  alt="Sahakar Maharishi Shankarrao Kohle Sahakari Sakhar Karkhana Logo"
+                  className="h-28 sm:h-36 w-auto object-contain"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -64,9 +84,10 @@ export default function About() {
               </p>
               <p>
                 Today, the Amrut range extends from double-refined white sugar
-                and premium gold sugar to traditional jaggery, rich brown sugar,
-                and pure desi cow ghee — each product carrying the same
-                standard of cleanliness and quality our mills are known for.
+                and premium gold sugar to traditional jaggery (blocks & cubes),
+                Amrut Farms select pulses (Toor, Chana, Moong, Urad), and pure
+                desi cow ghee — each product carrying the same standard of
+                cleanliness and quality our mills are known for.
               </p>
             </div>
 
@@ -87,6 +108,33 @@ export default function About() {
                 <p className="text-sm text-ink/65">Group verticals</p>
               </div>
             </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-4">
+              <div className="aspect-[4/3] overflow-hidden bg-teal-light ring-1 ring-ink/5">
+                <img
+                  src="/amrut logo.png"
+                  alt="Amrut brand mark"
+                  className="w-full h-full object-contain p-3"
+                  loading="lazy"
+                />
+              </div>
+              <div className="aspect-[4/3] overflow-hidden bg-white ring-1 ring-ink/5">
+                <img
+                  src="/amrut farms logo.png"
+                  alt="Amrut Farms logo — Pulses & Grains"
+                  className="w-full h-full object-contain p-3"
+                  loading="lazy"
+                />
+              </div>
+              <div className="aspect-[4/3] overflow-hidden bg-cream ring-1 ring-ink/5 col-span-2 sm:col-span-1">
+                <img
+                  src="/Amrut gud.png"
+                  alt="Amrut Gud logo — Chemical Free, 100% Natural"
+                  className="w-full h-full object-contain p-3"
+                  loading="lazy"
+                />
+              </div>
+            </div>
           </div>
 
           <aside
@@ -101,12 +149,15 @@ export default function About() {
                 Founder
               </h2>
 
-              <div className="flex items-start gap-5">
+              <div className="flex flex-col sm:flex-row items-start gap-5">
                 <div className="relative flex-shrink-0">
-                  <div className="w-24 h-24 sm:w-28 sm:h-28 bg-gradient-to-br from-gold-light to-jaggery-light flex items-center justify-center ring-1 ring-gold/20">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gold/15 flex items-center justify-center text-gold font-bold text-2xl sm:text-3xl">
-                      SK
-                    </div>
+                  <div className="w-32 h-36 sm:w-36 sm:h-40 overflow-hidden bg-gradient-to-br from-gold-light to-jaggery-light ring-1 ring-gold/20">
+                    <img
+                      src="/sir.png"
+                      alt="Late Hon. Shri Shankarraoji G. Kolhe — Sahakar Maharishi"
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
                   </div>
                   <div className="absolute -bottom-1 -right-1 w-7 h-7 bg-teal-deep text-cream flex items-center justify-center text-xs">
                     <Award className="w-3.5 h-3.5" aria-hidden="true" />
@@ -127,6 +178,25 @@ export default function About() {
                   </p>
                 </div>
               </div>
+
+              <div className="pt-2 flex gap-3">
+                <div className="flex-1 p-3 bg-teal-light/40 ring-1 ring-teal-deep/10">
+                  <img
+                    src="/Sanjivani kARKHANA LOGO 2 (1).png"
+                    alt="Sahakar Maharishi Shankarrao Kohle Karkhana"
+                    className="w-full h-20 object-contain"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="flex-1 p-3 bg-jaggery-light/40 ring-1 ring-jaggery/10">
+                  <img
+                    src="/Sanjivani Group 2(1).png"
+                    alt="Sanjivani Group"
+                    className="w-full h-20 object-contain"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
             </div>
           </aside>
         </div>
@@ -134,8 +204,17 @@ export default function About() {
 
       <section
         aria-labelledby="group-heading"
-        className="bg-jaggery-light/40 border-y border-jaggery/10"
+        className="relative bg-jaggery-light/40 border-y border-jaggery/10 overflow-hidden"
       >
+        <div
+          className="absolute inset-0 -z-10 opacity-[0.06] mix-blend-multiply"
+          aria-hidden="true"
+          style={{
+            backgroundImage: `url(/bg1.jpg)`,
+            backgroundSize: '440px 440px',
+            backgroundRepeat: 'repeat',
+          }}
+        />
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             <div className="lg:col-span-5 flex flex-col gap-3">
@@ -153,11 +232,23 @@ export default function About() {
                 cooperative excellence across sugar, education, ethanol,
                 chemicals, pharma, and power.
               </p>
+
+              <div className="flex items-center gap-4 pt-2">
+                <div className="inline-flex items-center justify-center p-3 bg-white/80 ring-1 ring-jaggery/15">
+                  <img
+                    src="/Sanjivani Group 2(1).png"
+                    alt="Sanjivani Group"
+                    className="h-16 sm:h-20 w-auto object-contain"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
               <a
                 href="https://www.sanjivanigroup.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-1 inline-flex items-center gap-2 w-fit px-5 py-3 bg-jaggery text-cream text-sm font-semibold tracking-tight hover:bg-jaggery/92 transition-colors duration-400 ease-cinematic focus-visible:outline-none"
+                className="mt-2 inline-flex items-center gap-2 w-fit px-5 py-3 bg-jaggery text-cream text-sm font-semibold tracking-tight hover:bg-jaggery/92 transition-colors duration-400 ease-cinematic focus-visible:outline-none"
               >
                 Visit Sanjivani Group
                 <ExternalLink className="w-4 h-4" aria-hidden="true" />

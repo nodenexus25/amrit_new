@@ -26,6 +26,15 @@ export default function Boyo() {
           aria-hidden="true"
         />
         <div
+          className="absolute inset-0 -z-10 opacity-[0.08] mix-blend-multiply"
+          aria-hidden="true"
+          style={{
+            backgroundImage: `url(/bg1.jpg)`,
+            backgroundSize: '440px 440px',
+            backgroundRepeat: 'repeat',
+          }}
+        />
+        <div
           className="absolute -bottom-32 -right-20 w-[28rem] h-[28rem] -z-10 rounded-full bg-jaggery-light/50 blur-3xl"
           aria-hidden="true"
         />
@@ -96,30 +105,38 @@ export default function Boyo() {
               </div>
             </div>
 
-            <div className="lg:col-span-5 relative">
+            <div className="lg:col-span-5 relative flex flex-col gap-4">
               <div className="aspect-[4/5] w-full overflow-hidden ring-1 ring-ink/5 bg-jaggery-light/70">
                 <img
-                  src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Vibrant%20healthy%20snack%20flatlay%20with%20almonds%20cashews%20mixed%20seeds%20dried%20cranberries%20blueberries%20and%20peanut%20butter%20jar%20on%20warm%20terracotta%20surface%20natural%20lighting%20editorial%20food%20photography&image_size=portrait_4_3"
-                  alt="BOYO — Nuts, seeds, berries and peanut butter"
+                  src="/Web Small.png"
+                  alt="BOYO — Wholesome Sweetness by Amrut, Bold As You"
                   className="w-full h-full object-cover"
                   loading="eager"
+                  fetchPriority="high"
                 />
               </div>
-              <div
-                className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-cream px-5 py-4 ring-1 ring-ink/10 shadow-lg"
-                aria-hidden="true"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-jaggery text-cream flex items-center justify-center font-black text-sm">
-                    B
-                  </div>
-                  <div>
-                    <p className="text-xs text-ink/50 uppercase tracking-[0.12em] font-medium">
-                      Sub-brand
-                    </p>
-                    <p className="text-sm font-bold text-ink">
-                      by Amrut Sugar
-                    </p>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="aspect-[4/3] overflow-hidden ring-1 ring-ink/5 bg-white">
+                  <img
+                    src="/Web Small_edited.png"
+                    alt="BOYO promo banner"
+                    className="w-full h-full object-contain p-2 bg-cream/40"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="aspect-[4/3] flex items-center justify-center overflow-hidden bg-cream ring-1 ring-ink/5">
+                  <div className="flex flex-col items-center gap-2 px-4 text-center">
+                    <div className="w-12 h-12 bg-jaggery text-cream flex items-center justify-center font-black text-xl">
+                      B
+                    </div>
+                    <div>
+                      <p className="text-xs text-ink/50 uppercase tracking-[0.12em] font-medium">
+                        Sub-brand
+                      </p>
+                      <p className="text-sm font-bold text-ink leading-tight">
+                        by Amrut Sugar
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>

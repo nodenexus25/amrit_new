@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Leaf, Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin } from 'lucide-react';
 
 function SocialIcon({ brand }: { brand: 'f' | 'ig' | 'x' }) {
   const map: Record<string, string> = { f: 'f', ig: 'IG', x: 'X' };
@@ -35,17 +35,11 @@ export function Footer() {
               className="flex items-center gap-2.5 focus-visible:outline-none"
               aria-label="Amrut Sugar — Home"
             >
-              <span className="inline-flex items-center justify-center w-11 h-11 bg-cream text-teal-deep">
-                <Leaf className="w-6 h-6" aria-hidden="true" />
-              </span>
-              <span className="flex flex-col leading-none">
-                <span className="text-xl font-bold tracking-tight text-cream">
-                  Amrut
-                </span>
-                <span className="text-[11px] tracking-[0.18em] uppercase text-cream/60 font-medium">
-                  Sugar
-                </span>
-              </span>
+              <img
+                src="/amrut sugar.png"
+                alt="Amrut Sugar"
+                className="h-14 w-auto object-contain"
+              />
             </Link>
 
             <p className="text-sm leading-relaxed text-cream/75 max-w-sm">
@@ -53,6 +47,32 @@ export function Footer() {
               Sahakari Sakhar Karkhana Ltd. — a Sanjivani Group brand,
               Kopargaon, Maharashtra.
             </p>
+
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center gap-4">
+                <div className="inline-flex items-center justify-center p-2 bg-cream/5">
+                  <img
+                    src="/Sanjivani kARKHANA LOGO 2 (1).png"
+                    alt="Sahakar Maharishi Shankarrao Kohle Sahakari Sakhar Karkhana"
+                    className="h-14 w-auto object-contain"
+                  />
+                </div>
+                <div className="inline-flex items-center justify-center p-2 bg-cream/5">
+                  <img
+                    src="/Sanjivani Group 2(1).png"
+                    alt="Sanjivani Group"
+                    className="h-14 w-auto object-contain"
+                  />
+                </div>
+              </div>
+              <div className="inline-flex items-center justify-center p-2 bg-cream/5 w-fit">
+                <img
+                  src="/amrut farms logo.png"
+                  alt="Amrut Farms — Pulses & Grains"
+                  className="h-10 w-auto object-contain"
+                />
+              </div>
+            </div>
 
             <div className="flex items-center gap-2 pt-1" aria-label="Social links">
               <a

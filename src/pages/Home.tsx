@@ -8,14 +8,14 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>Amrut Sugar — स्वास वाली मिठास | Wholesome Sweetness</title>
+        <title>Amrut Sugar — Swaas Waali Mithaas | Wholesome Sweetness</title>
         <meta
           name="description"
-          content="Amrut Sugar — pure, double-refined sugar, traditional jaggery, desi cow ghee, and BOYO healthy nuts & snacks. From the Sanjivani Group, Kopargaon, Maharashtra."
+          content="Amrut Sugar — pure, double-refined sugar, traditional jaggery, desi cow ghee, Amrut Farms pulses, and BOYO healthy nuts & snacks. From the Sanjivani Group, Kopargaon, Maharashtra."
         />
         <meta
           name="keywords"
-          content="Amrut Sugar, sugar, jaggery, desi ghee, BOYO, nuts, snacks, Sanjivani Group, Kopargaon, Maharashtra"
+          content="Amrut Sugar, sugar, jaggery, desi ghee, BOYO, nuts, snacks, Sanjivani Group, Kopargaon, Maharashtra, Amrut Farms, toor dal, chana dal, moong dal, urad dal, pulses"
         />
       </Helmet>
 
@@ -23,13 +23,23 @@ export default function Home() {
         className="relative overflow-hidden"
         aria-labelledby="hero-heading"
       >
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-teal-light/60 via-cream to-cream" aria-hidden="true" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-teal-light/70 via-cream to-cream" aria-hidden="true" />
         <div
-          className="absolute -top-24 -right-24 w-96 h-96 -z-10 rounded-full bg-gold-light/60 blur-3xl"
+          className="absolute top-0 right-0 -z-10 w-1/2 h-full opacity-[0.08] mix-blend-multiply"
+          aria-hidden="true"
+          style={{
+            backgroundImage: `url(/bg.png)`,
+            backgroundSize: '520px 520px',
+            backgroundRepeat: 'repeat',
+            backgroundPosition: 'right top',
+          }}
+        />
+        <div
+          className="absolute top-20 -left-20 w-80 h-80 -z-10 rounded-full bg-gold-light/50 blur-3xl"
           aria-hidden="true"
         />
         <div
-          className="absolute top-40 -left-20 w-80 h-80 -z-10 rounded-full bg-jaggery-light/40 blur-3xl"
+          className="absolute top-48 right-10 w-72 h-72 -z-10 rounded-full bg-jaggery-light/40 blur-3xl"
           aria-hidden="true"
         />
 
@@ -46,7 +56,7 @@ export default function Home() {
                   id="hero-heading"
                   className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-ink leading-[1.05]"
                 >
-                  <span className="block text-teal-deep">स्वास वाली मिठास</span>
+                  <span className="block text-teal-deep">Swaas Waali Mithaas!</span>
                   <span className="block mt-2 text-3xl sm:text-4xl lg:text-5xl font-semibold text-ink/90">
                     Wholesome Sweetness,
                     <br />
@@ -56,8 +66,9 @@ export default function Home() {
 
                 <p className="text-base sm:text-lg text-ink/70 leading-relaxed max-w-xl">
                   Pure, clean, hygienically packed sugar — and so much more.
-                  From the house of Sahakar Maharishi Shankarrao Kohle Sahakari
-                  Sakhar Karkhana Ltd., a trusted name for 64 years.
+                  Jaggery, desi ghee, Amrut Farms pulses, and BOYO nuts & snacks.
+                  From Sahakar Maharishi Shankarrao Kohle Sahakari Sakhar
+                  Karkhana Ltd., a trusted name for 64 years.
                 </p>
               </div>
 
@@ -79,13 +90,15 @@ export default function Home() {
             </div>
 
             <div className="lg:col-span-5 relative">
-              <div className="aspect-[4/5] w-full overflow-hidden ring-1 ring-ink/5 bg-teal-light">
+              <div className="relative aspect-[4/5] w-full overflow-hidden ring-1 ring-ink/5 bg-teal-light">
                 <img
-                  src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Rustic%20bowl%20of%20white%20sugar%20crystals%20jaggery%20blocks%20golden%20ghee%20in%20brass%20pot%20almonds%20on%20cream%20marble%20with%20sugarcane%20leaves%20warm%20natural%20lighting%20editorial%20photography&image_size=portrait_4_3"
-                  alt="Amrut Sugar product assortment — pure sugar, jaggery, ghee and nuts"
+                  src="/AMrut Packeging(1).png"
+                  alt="Amrut Sugar — Premium 2kg pouch with sugarcane, jaggery and farmhouse"
                   className="w-full h-full object-cover"
                   loading="eager"
+                  fetchPriority="high"
                 />
+                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-ink/20 to-transparent" aria-hidden="true" />
               </div>
               <div
                 className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 bg-cream px-5 py-4 ring-1 ring-ink/10 shadow-lg"
@@ -123,15 +136,15 @@ export default function Home() {
               id="categories-heading"
               className="text-3xl sm:text-4xl font-bold tracking-tight text-ink leading-tight"
             >
-              Four categories of pure, honest sweetness.
+              Five categories of pure, honest goodness.
             </h2>
             <p className="text-base text-ink/65 leading-relaxed">
-              From everyday sugar to slow-cultured ghee — and a whole range of
-              healthy snacks from BOYO.
+              From everyday sugar to slow-cultured ghee — plus Amrut Farms pulses,
+              and a whole range of healthy snacks from BOYO.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 lg:gap-6">
             {categories.map((cat, idx) => (
               <Link
                 key={cat.id}
@@ -174,10 +187,19 @@ export default function Home() {
 
       <section
         aria-labelledby="trust-heading"
-        className="bg-teal-deep/[0.03] border-y border-teal-deep/10"
+        className="relative bg-teal-deep/[0.03] border-y border-teal-deep/10 overflow-hidden"
       >
+        <div
+          className="absolute inset-0 -z-10 opacity-[0.06] mix-blend-multiply"
+          aria-hidden="true"
+          style={{
+            backgroundImage: `url(/bg1.jpg)`,
+            backgroundSize: '440px 440px',
+            backgroundRepeat: 'repeat',
+          }}
+        />
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-14">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 sm:gap-8">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 sm:gap-8">
             <div className="flex flex-col gap-2 max-w-md">
               <p className="text-xs font-semibold tracking-[0.16em] uppercase text-teal-deep">
                 Why Amrut
