@@ -150,12 +150,12 @@ export default function Products() {
 
   const pageTitle =
     active === 'all'
-      ? 'All Products — Amrut Sugar'
-      : `${TITLE[active as Exclude<CategoryFilter, 'all'>]} — Amrut Sugar`;
+      ? 'All Products — Amrut Sugar · Khaas Wali Mithaas!'
+      : `${TITLE[active as Exclude<CategoryFilter, 'all'>]} — Amrut Sugar · Khaas Wali Mithaas!`;
 
   const pageDesc =
     active === 'all'
-      ? 'Explore the complete Amrut product range — white and gold sugar, caster sugar, jaggery, brown sugar, Amrut Farms pulses, and pure desi cow ghee.'
+      ? 'Explore the complete Amrut product range — Khaas Wali Mithaas! White and gold sugar, caster sugar, jaggery, brown sugar, Amrut Farms pulses, and pure desi cow ghee.'
       : DESC[active as Exclude<CategoryFilter, 'all'>];
 
   const handleTab = (id: CategoryFilter) => {

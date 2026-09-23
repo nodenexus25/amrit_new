@@ -97,10 +97,10 @@ export default function About() {
   return (
     <>
       <Helmet>
-        <title>About Amrut Sugar — A Sanjivani Group Brand | Kopargaon</title>
+        <title>About Us — Amrut Sugar · Khaas Wali Mithaas! | Kopargaon</title>
         <meta
           name="description"
-          content="Amrut Sugar is the flagship consumer brand of Sahakar Maharishi Shankarrao Kohle Sahakari Sakhar Karkhana Ltd. — part of the 64-year-old Sanjivani Group, Kopargaon, Maharashtra."
+          content="Amrut Sugar — Khaas Wali Mithaas! Flagship consumer brand of Sahakar Maharishi Shankarrao Kohle Sahakari Sakhar Karkhana Ltd. — part of the 64-year-old Sanjivani Group, Kopargaon, Maharashtra."
         />
       </Helmet>
 

@@ -189,10 +189,10 @@ export default function Contact() {
   return (
     <>
       <Helmet>
-        <title>Contact Amrut Sugar — Enquiries, Bulk Orders & Distributors</title>
+        <title>Contact Us — Amrut Sugar · Khaas Wali Mithaas!</title>
         <meta
           name="description"
-          content="Contact Amrut Sugar for product enquiries, bulk orders, distributor partnerships, and general questions. Reach us by phone, email, or visit our Kopargaon office."
+          content="Contact Amrut Sugar — Khaas Wali Mithaas! For product enquiries, bulk orders, distributor partnerships, and general questions. Reach us by phone, email, or visit our Kopargaon office."
         />
       </Helmet>
 

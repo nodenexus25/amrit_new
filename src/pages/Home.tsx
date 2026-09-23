@@ -176,10 +176,10 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>Amrut Sugar — Khaas Wali Mithaas | Wholesome Sweetness</title>
+        <title>Amrut Sugar — Khaas Wali Mithaas! | Wholesome Sweetness</title>
         <meta
           name="description"
-          content="Amrut Sugar — pure, double-refined sugar, traditional jaggery, desi cow ghee, Amrut Farms pulses, and healthy nuts & snacks. From the Sanjivani Group, Kopargaon, Maharashtra."
+          content="Amrut Sugar — Khaas Wali Mithaas! Pure, double-refined sugar, traditional jaggery, desi cow ghee, and Amrut Farms pulses. From the Sanjivani Group, Kopargaon, Maharashtra."
         />
         <meta
           name="keywords"
