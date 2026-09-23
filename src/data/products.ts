@@ -1,4 +1,4 @@
-export type ProductCategory = 'sugar' | 'jaggery' | 'ghee' | 'nuts-snacks' | 'pulses';
+export type ProductCategory = 'sugar' | 'jaggery' | 'ghee' | 'pulses';
 
 export interface Benefit {
   id: string;
@@ -63,15 +63,6 @@ export const categories: CategoryInfo[] = [
     accent: 'text-gold',
     image: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Golden%20pure%20desi%20cow%20ghee%20in%20traditional%20brass%20pot%20with%20cream%20background%20studio%20photography&image_size=square_hd',
     href: '/products?category=ghee',
-  },
-  {
-    id: 'nuts-snacks',
-    name: 'BOYO — Nuts & Snacks',
-    description: 'Healthy snacking — nuts, seeds, berries, and more.',
-    tint: 'bg-gold-light',
-    accent: 'text-gold',
-    image: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Mix%20of%20premium%20almonds%20cashews%20dried%20berries%20pumpkin%20seeds%20in%20rustic%20bowl%20warm%20lighting%20studio%20shot&image_size=square_hd',
-    href: '/boyo',
   },
 ];
 
@@ -385,77 +376,6 @@ export const products: Product[] = [
     image: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Clear%20glass%20jar%20of%20pure%20ghee%20with%20brass%20lid%20on%20stone%20surface%20with%20rotis%20and%20curry%20bowl%20soft%20lighting%20studio%20shot&image_size=square_hd',
   },
 
-  // ===== NUTS & SNACKS (BOYO) =====
-  {
-    id: 'boyo-whole-almonds',
-    name: 'BOYO Whole Almonds',
-    category: 'nuts-snacks',
-    tagline: 'Premium California almonds',
-    description: 'Plump, hand-selected California almonds — naturally packed with protein, fibre, and vitamin E. Great for snacking, soaking, or garnishing your desserts.',
-    packSizes: ['250 g', '500 g', '1 kg'],
-    benefits: [
-      { id: 'hp1', label: 'High Protein', icon: 'seedling' },
-      { id: 'hs', label: 'Hand-Selected', icon: 'sparkles' },
-      { id: 'nc1', label: 'No Added Salt', icon: 'shield' },
-    ],
-    image: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Premium%20whole%20almonds%20in%20wooden%20bowl%20scattered%20on%20warm%20stone%20surface%20natural%20lighting%20studio%20product%20photography&image_size=square_hd',
-  },
-  {
-    id: 'boyo-roasted-cashews',
-    name: 'BOYO Roasted Cashews',
-    category: 'nuts-snacks',
-    tagline: 'Slow-roasted, lightly salted',
-    description: 'Creamy cashews slow-roasted for that perfect crunch and a kiss of salt. Add them to your trail mix, curries, or simply enjoy them straight out of the pack.',
-    packSizes: ['200 g', '500 g', '1 kg'],
-    benefits: [
-      { id: 'sr', label: 'Slow Roasted', icon: 'flame' },
-      { id: 'ls', label: 'Lightly Salted', icon: 'sparkles' },
-      { id: 'cr', label: 'Crunchy', icon: 'zap' },
-    ],
-    image: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Golden%20roasted%20cashews%20in%20rustic%20ceramic%20bowl%20with%20salt%20crystals%20and%20chili%20flakes%20warm%20lighting%20studio%20photography&image_size=square_hd',
-  },
-  {
-    id: 'boyo-mixed-seeds',
-    name: 'BOYO Mixed Seeds',
-    category: 'nuts-snacks',
-    tagline: 'Pumpkin, sunflower, chia & flax',
-    description: 'A power blend of pumpkin, sunflower, chia, and flax seeds. Sprinkle on salads, yogurt, smoothies, or toast them for a nutrient-rich topping.',
-    packSizes: ['250 g', '500 g'],
-    benefits: [
-      { id: 'of', label: 'Omega-3 Rich', icon: 'heart' },
-      { id: 'hf', label: 'High Fibre', icon: 'seedling' },
-      { id: 'nat1', label: '100% Natural', icon: 'leaf' },
-    ],
-    image: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Mix%20of%20pumpkin%20sunflower%20chia%20flax%20sesame%20seeds%20in%20small%20glass%20jars%20and%20scattered%20cream%20background%20studio%20photography&image_size=square_hd',
-  },
-  {
-    id: 'boyo-dried-berries',
-    name: 'BOYO Dried Berries Mix',
-    category: 'nuts-snacks',
-    tagline: 'Cranberries, blueberries & raisins',
-    description: 'A naturally sweet medley of cranberries, blueberries, and golden raisins. Toss into your muesli, bake into cookies, or snack them guilt-free.',
-    packSizes: ['200 g', '400 g'],
-    benefits: [
-      { id: 'ant', label: 'Anti-Oxidant Rich', icon: 'sparkles' },
-      { id: 'nas', label: 'No Added Sugar', icon: 'shield' },
-      { id: 'nat2', label: 'Naturally Dried', icon: 'sun' },
-    ],
-    image: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Colourful%20mix%20of%20dried%20cranberries%20blueberries%20golden%20raisins%20in%20ceramic%20bowl%20scattered%20on%20linen%20cloth%20studio%20photography&image_size=square_hd',
-  },
-  {
-    id: 'boyo-peanut-butter',
-    name: 'BOYO Peanut Butter',
-    category: 'nuts-snacks',
-    tagline: 'High-protein crunchy & creamy',
-    description: 'Roasted peanut butter made one batch at a time — no added oils, no palm oil, no nonsense. Choose crunchy for texture or creamy for your smoothies.',
-    packSizes: ['340 g', '1 kg'],
-    benefits: [
-      { id: 'hpr', label: 'High Protein', icon: 'seedling' },
-      { id: 'npo', label: 'No Palm Oil', icon: 'shield' },
-      { id: 'nns', label: 'Non-GMO', icon: 'leaf' },
-    ],
-    image: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Creamy%20peanut%20butter%20in%20glass%20jar%20with%20knife%20and%20toast%20slice%20cream%20kitchen%20background%20warm%20lighting%20studio%20shot&image_size=square_hd',
-  },
 ];
 
 export function getProductsByCategory(category: ProductCategory | 'all'): Product[] {

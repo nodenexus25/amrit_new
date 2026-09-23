@@ -72,8 +72,9 @@ export function BenefitBadge({
 
   return (
     <span
-      className={`inline-flex items-center font-medium tracking-tight ${toneClasses.wrapper} ${toneClasses.ring} ${sizeClasses}`}
+      className={`inline-flex items-center font-medium tracking-tight ${toneClasses.wrapper} ${toneClasses.ring} ${sizeClasses} animate-float-fast`}
       aria-label={label}
+      style={{ borderRadius: '999px' }}
     >
       <Icon className={iconSize} aria-hidden="true" />
       <span className="whitespace-nowrap">{label}</span>

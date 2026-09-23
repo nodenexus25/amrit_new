@@ -10,7 +10,6 @@ import { Layout } from './components/Layout';
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
 const Products = lazy(() => import('./pages/Products'));
-const Boyo = lazy(() => import('./pages/Boyo'));
 const Contact = lazy(() => import('./pages/Contact'));
 
 function PageFallback() {
@@ -53,7 +52,6 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/products" element={<Products />} />
-            <Route path="/boyo" element={<Boyo />} />
             <Route path="/contact" element={<Contact />} />
             <Route
               path="*"
