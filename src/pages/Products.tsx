@@ -6,7 +6,7 @@ import { ProductCard } from '../components/ProductCard';
 import { BenefitBadge } from '../components/BenefitBadge';
 import {
   ArrowRight, Sparkles, Leaf, Droplet, Sprout, Flame, Heart,
-  ShieldCheck, Factory, Gem, Award, Truck, Store, ChevronRight,
+  ShieldCheck, Factory, Gem, Award, Truck, Store,
   Cookie, Coffee, Cake, UtensilsCrossed, Star, Zap
 } from 'lucide-react';
 
@@ -81,10 +81,10 @@ const DESC: Record<Exclude<CategoryFilter, 'all'>, string> = {
 };
 
 const VIDEOS = [
-  { src: '/02.mp4', label: 'The Mill', sub: '02 · Kopargaon', chip: 'bg-teal-deep/90', icon: Factory },
-  { src: '/Amrut farm 3.mp4', label: 'Farm Harvest', sub: '03 · Fields', chip: 'bg-jaggery/90', icon: Sprout },
-  { src: '/Amrut farm 4.mp4', label: 'Sun & Soil', sub: '04 · Maharashtra', chip: 'bg-gold/90', icon: Leaf },
-] as const;
+    { src: '/Amrut farm 3.mp4', label: 'Farm Harvest', sub: '01 · Fields', chip: 'bg-jaggery/90', icon: Sprout },
+    { src: '/02.mp4', label: 'The Mill', sub: '02 · Kopargaon', chip: 'bg-teal-deep/90', icon: Factory },
+    { src: '/Amrut farm 4.mp4', label: 'Sun & Soil', sub: '03 · Maharashtra', chip: 'bg-gold/90', icon: Leaf },
+  ] as const;
 
 const PRODUCT_RANGES_STATS = [
   { label: 'Pure', Icon: Sparkles, accent: 'text-teal-deep', tint: 'bg-teal-light/80' },
@@ -384,12 +384,6 @@ export default function Products() {
                       {v.sub}
                     </span>
                   </div>
-                  <div className="absolute top-3 right-3 inline-flex items-center gap-1 px-2 py-1 bg-cream/[0.12] ring-1 ring-cream/25 backdrop-blur-md" style={{ borderRadius: '999px' }}>
-                    <span className="w-1.5 h-1.5 rounded-full bg-cream animate-pulse-soft" aria-hidden="true" />
-                    <span className="text-[9px] font-extrabold tracking-widest uppercase text-cream/95">
-                      LIVE
-                    </span>
-                  </div>
                   <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between gap-3">
                     <div className="flex flex-col gap-0.5">
                       <p className="text-lg sm:text-xl font-extrabold tracking-tight text-cream leading-none" style={{ textShadow: '0 2px 6px rgba(0,0,0,0.55)' }}>
@@ -400,9 +394,6 @@ export default function Products() {
                         {i === 1 && 'Morning harvest, same day crush.'}
                         {i === 2 && 'Sunshine in every sugarcane.'}
                       </p>
-                    </div>
-                    <div className="inline-flex items-center justify-center w-9 h-9 bg-cream/[0.12] ring-1 ring-cream/25 backdrop-blur-md shrink-0 transition-all duration-500 ease-cinematic group-hover:bg-gold-light group-hover:ring-gold/40 group-hover:scale-110" style={{ borderRadius: '999px' }}>
-                      <ChevronRight className="w-4 h-4 text-cream group-hover:text-teal-deep" aria-hidden="true" />
                     </div>
                   </div>
                 </div>
@@ -696,7 +687,6 @@ export default function Products() {
                   </p>
                 </div>
               </div>
-              <ChevronRight className="w-5 h-5 text-jaggery shrink-0 relative animate-pulse-soft" aria-hidden="true" />
             </div>
           </div>
         </div>

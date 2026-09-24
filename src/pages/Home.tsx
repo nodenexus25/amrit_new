@@ -13,7 +13,7 @@ import {
   Sparkles,
   ExternalLink,
 } from 'lucide-react';
-import { categories, trustBadges, products } from '../data/products';
+import { categories, trustBadges } from '../data/products';
 import { BenefitBadge } from '../components/BenefitBadge';
 
 const HERO_SLIDES = [
@@ -97,17 +97,6 @@ const CHAPTER_ONE_STEPS = [
     icon: Heart,
     image: '/gud 1.jpg',
   },
-];
-
-const SHOWCASE_PRODUCTS = [
-  products.find((p) => p.id === 'amrut-sugar-2kg')!,
-  products.find((p) => p.id === 'amrut-gud-950gm')!,
-  products.find((p) => p.id === 'amrut-toor-dal')!,
-  products.find((p) => p.id === 'amrut-pulses-family')!,
-  products.find((p) => p.id === 'amrut-jaggery-cubes')!,
-  products.find((p) => p.id === 'amrut-sugar-family')!,
-  products.find((p) => p.id === 'amrut-gud-combo')!,
-  products.find((p) => p.id === 'amrut-moong-dal')!,
 ];
 
 const GROUP_VERTICALS: Array<{ label: string; icon: typeof Sprout; tint: string }> = [
@@ -543,51 +532,6 @@ export default function Home() {
                 </div>
               </Link>
             ))}
-          </div>
-
-          {/* Showcase shelf */}
-          <div className="pt-4 lg:pt-6 reveal-hidden">
-            <div className="flex items-end justify-between gap-4 mb-5 sm:mb-6">
-              <p className="text-xs font-semibold tracking-[0.16em] uppercase text-teal-deep">
-                Most Loved · The Amrut Shelf
-              </p>
-              <Link
-                to="/products"
-                className="text-sm font-semibold tracking-tight text-ink/60 hover:text-teal-deep transition-colors"
-              >
-                Browse all →
-              </Link>
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-4">
-              {SHOWCASE_PRODUCTS.map((p, i) => (
-                <Link
-                  key={p.id}
-                  to={`/products?product=${p.id}`}
-                  className="group relative flex flex-col overflow-hidden bg-white ring-1 ring-ink/5 hover:ring-teal-deep/25 transition-all duration-600 ease-cinematic focus-visible:outline-none shine-wrap reveal-hidden-scale hover:-translate-y-1"
-                  style={{
-                    animationDelay: `${i * 40}ms`,
-                    borderRadius: '18px',
-                  }}
-                >
-                  <div className="relative aspect-square w-full overflow-hidden bg-cream/60">
-                    <img
-                      src={p.image}
-                      alt={p.name}
-                      loading="lazy"
-                      className="w-full h-full object-contain p-3 transition-transform duration-700 ease-cinematic group-hover:scale-[1.08]"
-                    />
-                  </div>
-                  <div className="flex flex-col gap-1 p-3 border-t border-ink/5">
-                    <p className="text-[11px] font-semibold tracking-tight text-ink leading-snug line-clamp-2">
-                      {p.name}
-                    </p>
-                    <p className="text-[10px] text-ink/50 leading-tight line-clamp-1">
-                      {p.tagline}
-                    </p>
-                  </div>
-                </Link>
-              ))}
-            </div>
           </div>
         </div>
       </section>
