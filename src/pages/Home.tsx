@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import {
@@ -20,35 +20,14 @@ const HERO_SLIDES = [
   {
     id: 's1',
     image: '/banner_2.2.png',
-    eyebrow: 'Prologue · A 64-year-old promise',
-    slogan: 'Khaas Wali Mithaas!',
-    headline: 'Wholesome Sweetness, Every Single Day.',
-    body:
-      'It starts in a Maharashtra sugarcane field and ends on your table. A story of cooperative grit, clean mills, and 64 years of trust — Sahakar Maharishi Shankarrao Kohle Sahakari Sakhar Karkhana, Kopargaon.',
-    badge: 'The Promise · Purity in every pack.',
-    accent: 'gold',
   },
   {
     id: 's2',
     image: '/banner_3.33.png',
-    eyebrow: 'Chapter 00 · Born in the fields',
-    slogan: 'Khet Se, Ghar Tak!',
-    headline: 'From Sugarcane Fields, Straight to Your Home.',
-    body:
-      'Select Maharashtra sugarcane, nurtured by cooperative farmers in Kopargaon. Harvested at peak sweetness. Mill-crushed the same day. No delays. No compromises.',
-    badge: 'The Roots · Shankarraoji Sahakari Sakhar Karkhana.',
-    accent: 'teal',
   },
   {
     id: 's3',
     image: '/banner_4.png',
-    eyebrow: 'Chapter 00 · The Range',
-    slogan: 'Har Pal, Har Rasoi Mein!',
-    headline: 'Sugar · Jaggery · Ghee · Pulses · Snacks.',
-    body:
-      'Double-refined sugar, slow-cooked jaggery, desi ghee, Amrut Farms pulses and premium nuts — the Amrut shelf has a trusted answer for every ritual in your kitchen.',
-    badge: 'The Shelf · One brand, many favourites.',
-    accent: 'jaggery',
   },
 ];
 
@@ -136,21 +115,14 @@ function useScrollReveal() {
 export default function Home() {
   const [slideIdx, setSlideIdx] = useState(0);
   const timerRef = useRef<number | undefined>(undefined);
-  const [progressReset, setProgressReset] = useState(0);
 
   useScrollReveal();
-
-  const goTo = useCallback((idx: number) => {
-    setSlideIdx(idx);
-    setProgressReset((r) => r + 1);
-  }, []);
 
   useEffect(() => {
     let mounted = true;
     const loop = () => {
       if (!mounted) return;
       setSlideIdx((i) => (i + 1) % HERO_SLIDES.length);
-      setProgressReset((r) => r + 1);
     };
     timerRef.current = window.setInterval(loop, 4000);
     return () => {
@@ -176,10 +148,10 @@ export default function Home() {
         />
       </Helmet>
 
-      {/* ==== PROLOGUE: HERO (Full-Screen Slideshow) ==== */}
+      {/* ==== PROLOGUE: HERO (Full-Screen Pure Image Slideshow) ==== */}
       <section
-        aria-label="Amrut Sugar hero slideshow"
-        className="relative w-full overflow-hidden bg-teal-deep flex items-stretch"
+        aria-label="Amrut Sugar hero"
+        className="relative w-full overflow-hidden bg-teal-deep"
         style={{ minHeight: 'max(100svh, 620px)' }}
       >
         {HERO_SLIDES.map((s, i) => {
@@ -188,69 +160,21 @@ export default function Home() {
             <div
               key={s.id}
               aria-hidden={!active}
-              className={`absolute inset-0 transition-opacity duration-1000 ease-cinematic ${
+              className={`absolute inset-0 transition-opacity duration-1200 ease-cinematic ${
                 active ? 'opacity-100 z-0 pointer-events-auto' : 'opacity-0 z-[-1] pointer-events-none'
               }`}
             >
-              <div className="absolute inset-0">
-                <img
-                  src={s.image}
-                  alt={s.image}
-                  className="w-full h-full object-cover object-center"
-                  loading={i === 0 ? 'eager' : 'lazy'}
-                  fetchPriority={i === 0 ? 'high' : 'auto'}
-                  decoding="async"
-                />
-              </div>
-              <div className="absolute inset-0 bg-teal-deep/20 mix-blend-multiply" aria-hidden="true" />
-              <div
-                className="absolute inset-0 opacity-[0.06] mix-blend-overlay"
-                aria-hidden="true"
-                style={{
-                  backgroundImage: `url(/bg.png)`,
-                  backgroundSize: '480px 480px',
-                  backgroundRepeat: 'repeat',
-                }}
+              <img
+                src={s.image}
+                alt="Amrut Sugar"
+                className="w-full h-full object-cover object-center"
+                loading={i === 0 ? 'eager' : 'lazy'}
+                fetchPriority={i === 0 ? 'high' : 'auto'}
+                decoding="async"
               />
             </div>
           );
         })}
-
-        <div className="absolute top-1/4 left-[6%] z-10 hidden lg:block pointer-events-none">
-          <div className="w-60 h-60 rounded-full bg-gold/12 blur-3xl animate-pulse-soft" />
-        </div>
-        <div className="absolute bottom-1/4 right-[8%] z-10 hidden lg:block pointer-events-none">
-          <div className="w-72 h-72 rounded-full bg-teal-light/10 blur-3xl animate-pulse-soft delay-600" />
-        </div>
-
-        <div className="absolute left-1/2 z-20 -translate-x-1/2 flex flex-col items-center gap-3 bottom-6 sm:bottom-10">
-          <div className="flex items-center gap-3">
-            {HERO_SLIDES.map((s, i) => {
-              const active = i === slideIdx;
-              return (
-                <button
-                  type="button"
-                  key={`dot-${s.id}`}
-                  onClick={() => goTo(i)}
-                  aria-label={`Go to slide ${i + 1}`}
-                  className={`group relative h-1.5 rounded-full transition-all duration-600 ease-cinematic focus-visible:outline-none overflow-hidden ${
-                    active ? 'w-14 sm:w-16 bg-cream/25' : 'w-2.5 bg-cream/40 hover:bg-cream/60'
-                  }`}
-                >
-                  {active && (
-                    <span
-                      key={`prog-${progressReset}-${i}`}
-                      className="absolute inset-y-0 left-0 bg-gold-light hero-progress rounded-full"
-                    />
-                  )}
-                </button>
-              );
-            })}
-            <span className="ml-3 hidden sm:inline-flex items-center text-[10px] font-semibold tracking-[0.22em] uppercase text-cream/60">
-              {String(slideIdx + 1).padStart(2, '0')} / {String(HERO_SLIDES.length).padStart(2, '0')}
-            </span>
-          </div>
-        </div>
       </section>
 
       {/* ==== CHAPTER I: ORIGIN ==== */}

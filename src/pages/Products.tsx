@@ -6,8 +6,8 @@ import { ProductCard } from '../components/ProductCard';
 import { BenefitBadge } from '../components/BenefitBadge';
 import {
   ArrowRight, Sparkles, Leaf, Droplet, Sprout, Flame, Heart,
-  ShieldCheck, Factory, Gem, Award, Truck, Store,
-  Cookie, Coffee, Cake, UtensilsCrossed, Star, Zap
+  ShieldCheck, Factory, Gem, Truck, Store,
+  Cookie, Coffee, Cake, UtensilsCrossed, Zap
 } from 'lucide-react';
 
 function useScrollReveal() {
@@ -45,27 +45,6 @@ const TABS: { id: CategoryFilter; label: string; accent: string; icon: typeof Le
   { id: 'ghee', label: 'Desi Ghee', accent: 'text-gold', icon: Heart },
 ];
 
-const HERO_TITLE: Record<Exclude<CategoryFilter, 'all'>, string> = {
-  sugar: 'Pure, double-refined sugar.',
-  jaggery: 'Traditional jaggery & brown sugar.',
-  pulses: 'Amrut Farms — Select pulses & dals.',
-  ghee: 'Pure desi cow ghee.',
-};
-
-const HERO_SUBTITLE: Record<Exclude<CategoryFilter, 'all'>, string> = {
-  sugar: 'Everyday sugar, trusted by Maharashtra for 64 years. Crystal-clear, quick-dissolving, and uniformly grained.',
-  jaggery: 'Unrefined, mineral-rich sweetness the way your grandparents loved it. Solid blocks, powder, cubes and soft brown.',
-  pulses: 'Toor, Chana, Moong, Urad — clean, select-source dal from Amrut Farms. No artificial colours, no preservatives.',
-  ghee: 'Slow-cultured, traditionally churned ghee from grass-fed desi cows. The golden taste of tradition.',
-};
-
-const CATEGORY_HERO: Record<Exclude<CategoryFilter, 'all'>, { tag: string; stat: string; statLabel: string }> = {
-  sugar: { tag: 'The Icon · Since 1975', stat: '8+', statLabel: 'SKUs · 1kg to 50kg' },
-  jaggery: { tag: 'The Heritage · 100% Natural', stat: '5+', statLabel: 'Forms · Block, Cubes, Powder' },
-  pulses: { tag: 'Amrut Farms · Select Source', stat: '4', statLabel: 'Dals · Toor · Chana · Moong · Urad' },
-  ghee: { tag: 'Desi Cow · Grass-Fed', stat: '1L+', statLabel: 'Slow-cultured golden ghee' },
-};
-
 const TITLE: Record<Exclude<CategoryFilter, 'all'>, string> = {
   sugar: 'Sugar Range',
   jaggery: 'Jaggery & Brown Sugar Range',
@@ -86,13 +65,6 @@ const VIDEOS = [
     { src: '/Amrut farm 4.mp4', label: 'Sun & Soil', sub: '03 · Maharashtra', chip: 'bg-gold/90', icon: Leaf },
   ] as const;
 
-const PRODUCT_RANGES_STATS = [
-  { label: 'Pure', Icon: Sparkles, accent: 'text-teal-deep', tint: 'bg-teal-light/80' },
-  { label: 'Hygienic', Icon: ShieldCheck, accent: 'text-gold', tint: 'bg-gold-light/80' },
-  { label: 'Farm Fresh', Icon: Leaf, accent: 'text-jaggery', tint: 'bg-jaggery-light/80' },
-  { label: '64 Years', Icon: Heart, accent: 'text-teal-deep', tint: 'bg-teal-light/80' },
-];
-
 const PROCESS_STRIP = [
   { k: '01', label: 'Farm Harvest', tint: 'from-jaggery-light/90 to-jaggery/70', icon: Sprout },
   { k: '02', label: 'Mill Crush', tint: 'from-teal-light/90 to-teal-deep/70', icon: Factory },
@@ -108,19 +80,6 @@ const PAIRING_TILES = [
   { k: 'Dal', Icon: UtensilsCrossed, tint: 'bg-jaggery-light', accent: 'text-jaggery', body: 'Dinner balance', copy: 'Amrut Farms, everyday.' },
   { k: 'Prasad', Icon: Cookie, tint: 'bg-gold-light', accent: 'text-gold', body: 'Naivedyam pure', copy: 'Temple-worthy cleanliness.' },
 ] as const;
-
-const MARQUEE_ITEMS = [
-  'ISO 9001:2015 Certified',
-  'Double Refined',
-  'Sulphur-Free',
-  'Uniform Crystal Size',
-  'Since 1962',
-  'River Godavari',
-  'Khaas Wali Mithaas!',
-  'Sanjivani Group',
-  'Farmer-First Cooperative',
-  'Hygienically Sealed',
-];
 
 export default function Products() {
   useScrollReveal();
@@ -174,166 +133,19 @@ export default function Products() {
         <meta name="description" content={pageDesc} />
       </Helmet>
 
-      {/* ==== HERO — FULL REDESIGN ==== */}
+      {/* ==== HERO — FULL-SCREEN IMAGE ONLY (Home-style) ==== */}
       <section
-        className="relative overflow-hidden bg-gradient-to-br from-cream via-cream to-gold-light/20"
-        aria-labelledby="products-hero-heading"
-        style={{ minHeight: 'max(100svh, 680px)' }}
+        aria-label="Amrut Products hero"
+        className="relative w-full overflow-hidden bg-gradient-to-br from-cream via-cream to-gold-light/20"
+        style={{ minHeight: 'max(100svh, 620px)' }}
       >
-        <div
-          className="absolute inset-0 opacity-[0.08] mix-blend-multiply pointer-events-none"
-          aria-hidden="true"
-          style={{
-            backgroundImage: `url(/bg.png)`,
-            backgroundSize: '520px 520px',
-            backgroundRepeat: 'repeat',
-          }}
+        <img
+          src="/a.png"
+          alt="Amrut — Khaas Wali Mithaas!"
+          className="w-full h-full object-contain p-4 sm:p-8 lg:p-12"
+          loading="eager"
+          fetchPriority="high"
         />
-        <div className="absolute top-[-10%] left-[-8%] w-[480px] h-[480px] rounded-full bg-teal-light/60 blur-[120px] opacity-70 animate-pulse-soft" aria-hidden="true" />
-        <div className="absolute top-[10%] right-[-6%] w-[460px] h-[460px] rounded-full bg-gold/40 blur-[120px] opacity-70 animate-pulse-soft delay-500" aria-hidden="true" />
-        <div className="absolute bottom-[-12%] left-[28%] w-[520px] h-[520px] rounded-full bg-jaggery-light/60 blur-[140px] opacity-55 animate-float-slow" aria-hidden="true" />
-        <div
-          className="absolute inset-0 pointer-events-none opacity-40"
-          aria-hidden="true"
-          style={{
-            background:
-              'radial-gradient(closest-side at 50% 18%, rgba(255,251,235,0.95) 0%, rgba(255,251,235,0) 60%)',
-          }}
-        />
-
-        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-12 lg:pt-28 lg:pb-16 relative">
-          <div className="flex flex-col items-center text-center gap-6 max-w-5xl mx-auto reveal-hidden">
-            <div className="flex flex-wrap items-center justify-center gap-2 animate-fade-down">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-white ring-1 ring-teal-deep/15 shadow-[0_8px_24px_rgba(31,92,74,0.08)] shine-wrap" style={{ borderRadius: '999px' }}>
-                <span className="w-1.5 h-1.5 rounded-full bg-teal-deep animate-pulse-soft shrink-0" aria-hidden="true" />
-                <span className="text-[11px] sm:text-xs font-bold tracking-[0.18em] uppercase text-teal-deep whitespace-nowrap">
-                  {active === 'all' ? 'The Full Shelf · Amrut' : CATEGORY_HERO[active as Exclude<CategoryFilter, 'all'>].tag}
-                </span>
-              </span>
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-gradient-to-r from-gold-light/80 via-gold-light to-jaggery-light/70 ring-1 ring-gold/20 shadow-[0_8px_24px_rgba(255,196,64,0.18)] shine-wrap" style={{ borderRadius: '999px' }}>
-                <Sparkles className="w-3.5 h-3.5 text-gold shrink-0" aria-hidden="true" />
-                <span className="text-[11px] sm:text-xs font-extrabold tracking-wide text-ink/90 whitespace-nowrap">
-                  Khaas Wali Mithaas!
-                </span>
-              </span>
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-white ring-1 ring-jaggery/20 shadow-[0_8px_24px_rgba(207,135,59,0.08)] shine-wrap" style={{ borderRadius: '999px' }}>
-                <Award className="w-3.5 h-3.5 text-jaggery shrink-0" aria-hidden="true" />
-                <span className="text-[11px] sm:text-xs font-bold tracking-wide text-ink/80 whitespace-nowrap">
-                  ISO 9001:2015 Certified
-                </span>
-              </span>
-            </div>
-
-            <h1
-              id="products-hero-heading"
-              className="text-[40px] sm:text-5xl lg:text-[72px] xl:text-[82px] font-black tracking-[-0.02em] text-ink leading-[0.98] animate-fade-up delay-100"
-              style={{ textShadow: '0 4px 40px rgba(255,196,64,0.12)' }}
-            >
-              {active === 'all' ? (
-                <>
-                  Sweetness that
-                  <br />
-                  <span className="bg-gradient-to-r from-teal-deep via-gold to-jaggery bg-clip-text text-transparent">
-                    belongs in every home.
-                  </span>
-                </>
-              ) : (
-                <>
-                  {HERO_TITLE[active as Exclude<CategoryFilter, 'all'>]}
-                  <br />
-                  <span className="bg-gradient-to-r from-teal-deep via-gold to-jaggery bg-clip-text text-transparent">
-                    Pure. Clean. Amrut.
-                  </span>
-                </>
-              )}
-            </h1>
-
-            <p className="text-base sm:text-lg lg:text-xl text-ink/70 leading-relaxed max-w-2xl animate-fade-up delay-200 font-medium">
-              {active === 'all'
-                ? 'From everyday sugar to slow-cultured desi ghee — jaggery, and Amrut Farms pulses. Every pack sealed clean, every crystal crafted with the same 64 years of obsession for quality.'
-                : HERO_SUBTITLE[active as Exclude<CategoryFilter, 'all'>]}
-            </p>
-
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full max-w-2xl animate-fade-up delay-300">
-              {PRODUCT_RANGES_STATS.map((stat, i) => {
-                const Icon = stat.Icon;
-                return (
-                  <div
-                    key={stat.label}
-                    className="group flex flex-col sm:flex-row sm:items-center justify-center gap-2 sm:gap-2.5 px-3 sm:px-4 py-3.5 bg-white/85 backdrop-blur-sm ring-1 ring-ink/8 hover:ring-teal-deep/25 transition-all duration-500 ease-cinematic hover:-translate-y-0.5 shadow-[0_10px_30px_rgba(0,0,0,0.04)] shine-wrap"
-                    style={{ borderRadius: '18px', animationDelay: `${i * 50}ms` }}
-                  >
-                    <div className={`mx-auto sm:mx-0 inline-flex items-center justify-center w-10 h-10 shrink-0 ${stat.tint} animate-float-fast`} style={{ borderRadius: '12px' }}>
-                      <Icon className={`w-5 h-5 ${stat.accent}`} aria-hidden="true" />
-                    </div>
-                    <span className="text-sm sm:text-[15px] font-extrabold tracking-tight text-ink/90 leading-tight">
-                      {stat.label}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
-
-            <div className="flex flex-wrap items-center justify-center gap-3 pt-1 animate-fade-up delay-400">
-              <a
-                href="#product-grid-heading"
-                className="group shine-wrap inline-flex items-center gap-2.5 px-7 sm:px-8 py-4 sm:py-4.5 bg-gradient-to-r from-teal-deep to-emerald-700 text-cream text-sm sm:text-[15px] font-extrabold tracking-tight hover:from-teal-deep hover:to-emerald-800 transition-all duration-600 ease-cinematic focus-visible:outline-none shadow-[0_14px_32px_rgba(31,92,74,0.32)]"
-                style={{ borderRadius: '999px' }}
-              >
-                Explore the Range
-                <ArrowRight className="w-4.5 h-4.5 transition-transform duration-600 ease-cinematic group-hover:translate-x-0.5" aria-hidden="true" />
-              </a>
-              <div className="inline-flex items-center gap-3 px-5 sm:px-6 py-3.5 sm:py-4 bg-white ring-1 ring-gold/25 shadow-[0_10px_28px_rgba(255,196,64,0.12)] shine-wrap" style={{ borderRadius: '999px' }}>
-                <div className="flex flex-col leading-tight">
-                  <span className="text-xl sm:text-[26px] font-black text-teal-deep leading-none">
-                    {active === 'all' ? `${products.length}+` : CATEGORY_HERO[active as Exclude<CategoryFilter, 'all'>].stat}
-                  </span>
-                  <span className="text-[10px] sm:text-[11px] text-ink/60 tracking-wide mt-1">
-                    {active === 'all' ? 'Products · One Name' : CATEGORY_HERO[active as Exclude<CategoryFilter, 'all'>].statLabel}
-                  </span>
-                </div>
-                <div className="h-8 w-px bg-ink/10" aria-hidden="true" />
-                <div className="flex flex-col leading-tight">
-                  <span className="text-xl sm:text-[26px] font-black text-gold leading-none">
-                    1962
-                  </span>
-                  <span className="text-[10px] sm:text-[11px] text-ink/60 tracking-wide mt-1">
-                    Serving Maharashtra
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-14 sm:mt-16 lg:mt-20 reveal-hidden-scale">
-            <div className="relative max-w-4xl mx-auto">
-              <div className="absolute -inset-4 sm:-inset-6 bg-gradient-to-br from-teal-light/70 via-gold/50 to-jaggery-light/70 blur-3xl opacity-70 animate-pulse-soft" aria-hidden="true" />
-              <div className="absolute -inset-2 sm:-inset-3 bg-gradient-to-br from-white via-white/70 to-cream ring-2 ring-white shadow-[0_30px_80px_rgba(31,92,74,0.18)] animate-float-medium" style={{ borderRadius: '34px' }} aria-hidden="true" />
-              <div className="relative overflow-hidden ring-1 ring-ink/5 shine-wrap bg-gradient-to-br from-white via-cream to-gold-light/15" style={{ borderRadius: '32px' }}>
-                <div className="grid sm:grid-cols-12 items-stretch gap-0">
-                  
-
-                 
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Marquee floor */}
-        <div className="relative border-t border-ink/5 bg-gradient-to-r from-cream via-white to-cream shadow-[0_-10px_30px_rgba(0,0,0,0.02)] py-2.5 sm:py-3 overflow-hidden">
-          <div className="flex gap-8 sm:gap-10 animate-marquee whitespace-nowrap">
-            {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((m, i) => (
-              <span
-                key={i}
-                className="inline-flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs font-bold tracking-[0.18em] sm:tracking-[0.2em] uppercase text-ink/50 shrink-0"
-              >
-                <Star className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-teal-deep shrink-0" aria-hidden="true" />
-                {m}
-              </span>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* ==== 3 VIDEOS IN ONE HORIZONTAL ROW (small tiles) ==== */}

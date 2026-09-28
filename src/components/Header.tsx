@@ -13,7 +13,6 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const isHome = location.pathname === '/';
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 14);
@@ -33,19 +32,22 @@ export function Header() {
     };
   }, [open]);
 
-  const navBg = scrolled || !isHome
+  const navBg = scrolled
     ? 'bg-white/95 backdrop-blur-md ring-1 ring-ink/10 shadow-[0_10px_36px_rgb(0,0,0,0.08)]'
     : 'bg-transparent ring-1 ring-transparent shadow-none';
 
-  const textTone = scrolled || !isHome ? 'text-ink/80 hover:text-teal-deep' : 'text-cream/92 hover:text-gold-light';
-  const logoTone = scrolled || !isHome ? '' : 'drop-shadow-[0_2px_6px_rgba(0,0,0,0.35)]';
-  const activeTone = scrolled || !isHome ? 'text-teal-deep' : 'text-gold-light';
-  const activeUnderline = scrolled || !isHome ? 'bg-teal-deep' : 'bg-gold-light';
+  const textTone = scrolled ? 'text-ink/80 hover:text-teal-deep' : 'text-transparent';
+  const logoTone = scrolled ? '' : 'opacity-0';
+  const activeTone = scrolled ? 'text-teal-deep' : 'text-transparent';
+  const activeUnderline = scrolled ? 'bg-teal-deep' : 'bg-transparent';
+  const navVisibility = scrolled
+    ? 'opacity-100 translate-y-0 pointer-events-auto'
+    : 'opacity-0 -translate-y-3 pointer-events-none';
 
   return (
     <>
       <div className="pointer-events-none fixed inset-x-0 top-0 z-50 h-24 sm:h-28" aria-hidden="true" />
-      <header className="fixed inset-x-0 top-0 z-50 w-full pt-3 sm:pt-4 lg:pt-5 animate-fade-down">
+      <header className={`fixed inset-x-0 top-0 z-50 w-full pt-3 sm:pt-4 lg:pt-5 transition-all duration-600 ease-cinematic ${navVisibility}`}>
         <div className="mx-auto w-full max-w-7xl px-3 sm:px-5 lg:px-6">
           <nav
             className={`relative w-full grid grid-cols-[1fr_auto_1fr] items-center gap-2 sm:gap-3 lg:gap-4 px-3 sm:px-4 lg:px-5 py-2.5 sm:py-3 transition-all duration-600 ease-cinematic ${navBg}`}
@@ -110,7 +112,7 @@ export function Header() {
                 title="A Sanjivani Group Brand"
               >
                 <div className={`relative flex items-center justify-center p-1.5 transition-all duration-500 ease-cinematic rounded-full ${
-                  scrolled || !isHome
+                  scrolled
                     ? 'bg-white/70 ring-1 ring-gold/25 group-hover:ring-gold/45'
                     : 'bg-cream/10 ring-1 ring-cream/20 group-hover:ring-gold-light/45'
                 }`}>
@@ -123,17 +125,17 @@ export function Header() {
                 </div>
                 <div className="hidden xl:flex flex-col leading-tight items-end">
                   <span className={`text-[10px] font-semibold tracking-[0.2em] uppercase transition-colors duration-300 ${
-                    scrolled || !isHome ? 'text-ink/50' : 'text-cream/60'
+                    scrolled ? 'text-ink/50' : 'text-cream/60'
                   }`}>
                     A
                   </span>
                   <span className={`text-[11px] font-bold tracking-tight transition-colors duration-300 ${
-                    scrolled || !isHome ? 'text-teal-deep group-hover:text-teal-deep/85' : 'text-cream group-hover:text-gold-light'
+                    scrolled ? 'text-teal-deep group-hover:text-teal-deep/85' : 'text-cream group-hover:text-gold-light'
                   }`}>
                     Sanjivani Group
                   </span>
                   <span className={`text-[9px] tracking-[0.14em] uppercase font-medium transition-colors duration-300 ${
-                    scrolled || !isHome ? 'text-ink/40' : 'text-cream/50'
+                    scrolled ? 'text-ink/40' : 'text-cream/50'
                   }`}>
                     Brand · Since 1962
                   </span>
@@ -143,7 +145,7 @@ export function Header() {
               <Link
                 to="/products"
                 className={`hidden md:inline-flex items-center gap-1.5 px-4 sm:px-5 py-2.5 text-xs sm:text-[13px] font-bold tracking-tight transition-all duration-500 ease-cinematic focus-visible:outline-none shine-wrap ${
-                  scrolled || !isHome
+                  scrolled
                     ? 'bg-teal-deep text-cream hover:bg-teal-deep/92 ring-1 ring-teal-deep/20'
                     : 'bg-cream text-teal-deep hover:bg-gold-light ring-1 ring-cream/30'
                 }`}
@@ -159,7 +161,7 @@ export function Header() {
                 aria-controls="mobile-menu"
                 aria-label={open ? 'Close menu' : 'Open menu'}
                 className={`inline-flex items-center justify-center w-10 h-10 lg:hidden transition-all duration-400 ease-cinematic focus-visible:outline-none rounded-full ${
-                  scrolled || !isHome
+                  scrolled
                     ? 'text-ink/80 hover:text-teal-deep hover:bg-ink/5'
                     : 'text-cream hover:text-gold-light hover:bg-cream/10'
                 }`}
@@ -182,7 +184,7 @@ export function Header() {
         >
           <div
             className={`w-full ring-1 overflow-hidden ${
-              scrolled || !isHome
+              scrolled
                 ? 'bg-cream/95 backdrop-blur-xl ring-ink/10 shadow-[0_10px_40px_rgb(0,0,0,0.08)]'
                 : 'bg-ink/80 backdrop-blur-xl ring-cream/15 shadow-[0_10px_40px_rgb(0,0,0,0.25)]'
             }`}
@@ -226,10 +228,10 @@ export function Header() {
                   className={({ isActive }) =>
                     `block px-4 py-3.5 text-sm font-semibold tracking-tight transition-all duration-400 ease-cinematic rounded-2xl ${
                       isActive
-                        ? scrolled || !isHome
+                        ? scrolled
                           ? 'text-teal-deep bg-teal-light/60 ring-1 ring-teal-deep/10'
                           : 'text-gold-light bg-cream/10 ring-1 ring-cream/15'
-                        : scrolled || !isHome
+                        : scrolled
                           ? 'text-ink/80 hover:text-teal-deep hover:bg-ink/5'
                           : 'text-cream/90 hover:text-gold-light hover:bg-cream/8'
                     }`
