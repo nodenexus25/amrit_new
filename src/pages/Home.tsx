@@ -34,7 +34,6 @@ const HERO_SLIDES = [
 const CHAPTER_ONE_STEPS = [
   {
     id: 'fields',
-    num: '01',
     eyebrow: 'Roots',
     title: 'Select Maharashtra Sugarcane',
     body: 'We start with the finest sugarcane from Kopargaon and surrounding belt — nurtured by cooperative farmers, harvested at peak sweetness.',
@@ -45,7 +44,6 @@ const CHAPTER_ONE_STEPS = [
   },
   {
     id: 'mill',
-    num: '02',
     eyebrow: 'Craft',
     title: 'Double-Refined, Zero Shortcuts',
     body: 'Slow-crystallised, double-refined, sulphur-free. Every crystal passes through 64 years of milling expertise at our Sahakari Sakhar Karkhana.',
@@ -56,7 +54,6 @@ const CHAPTER_ONE_STEPS = [
   },
   {
     id: 'pack',
-    num: '03',
     eyebrow: 'Promise',
     title: 'Hygienically Sealed, Every Pack',
     body: 'Hygienic packing lines. Sealed pouches. Quality checks at every stage. So what reaches your kitchen is exactly what left ours.',
@@ -67,7 +64,6 @@ const CHAPTER_ONE_STEPS = [
   },
   {
     id: 'table',
-    num: '04',
     eyebrow: 'Home',
     title: 'From Karkhana to Your Kitchen',
     body: 'Chai, laddoos, halwa, dal tadka, and every sweet & savoury memory in between — Amrut is there, on your table, every single day.',
@@ -349,11 +345,6 @@ export default function Home() {
                     }}
                   >
                     <div className={`relative aspect-[5/4] w-full overflow-hidden ${step.tint}`}>
-                      <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10">
-                        <span className="inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 bg-white/90 backdrop-blur-sm ring-1 ring-ink/10 text-xs sm:text-sm font-bold tracking-tight text-ink/80 animate-float-fast">
-                          {step.num}
-                        </span>
-                      </div>
                       <img
                         src={step.image}
                         alt={step.title}

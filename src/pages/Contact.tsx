@@ -271,7 +271,7 @@ export default function Contact() {
                 { label: 'Mon–Sat', sub: 'Mill hours', Icon: Clock, tint: 'bg-teal-light/90 text-teal-deep' },
                 { label: 'Same day', sub: 'Enquiry reply', Icon: Users, tint: 'bg-gold-light/90 text-gold' },
                 { label: 'Pan-India', sub: 'Delivery', Icon: Truck, tint: 'bg-jaggery-light/90 text-jaggery' },
-                { label: 'MD desk', sub: 'Always reachable', Icon: Phone, tint: 'bg-teal-light/90 text-teal-deep' },
+                { label: 'Contact', sub: 'Direct desk', Icon: Phone, tint: 'bg-teal-light/90 text-teal-deep' },
               ].map((s) => {
                 const SC = s.Icon;
                 return (

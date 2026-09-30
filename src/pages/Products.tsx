@@ -59,12 +59,6 @@ const DESC: Record<Exclude<CategoryFilter, 'all'>, string> = {
   ghee: 'Amrut desi cow ghee — traditionally churned, pure, and golden.',
 };
 
-const VIDEOS = [
-    { src: '/Amrut farm 3.mp4', label: 'Farm Harvest', sub: '01 · Fields', chip: 'bg-jaggery/90', icon: Sprout },
-    { src: '/02.mp4', label: 'The Mill', sub: '02 · Kopargaon', chip: 'bg-teal-deep/90', icon: Factory },
-    { src: '/Amrut farm 4.mp4', label: 'Sun & Soil', sub: '03 · Maharashtra', chip: 'bg-gold/90', icon: Leaf },
-  ] as const;
-
 const PROCESS_STRIP = [
   { k: '01', label: 'Farm Harvest', tint: 'from-jaggery-light/90 to-jaggery/70', icon: Sprout },
   { k: '02', label: 'Mill Crush', tint: 'from-teal-light/90 to-teal-deep/70', icon: Factory },
@@ -146,73 +140,6 @@ export default function Products() {
           loading="eager"
           fetchPriority="high"
         />
-      </section>
-
-      {/* ==== 3 VIDEOS IN ONE HORIZONTAL ROW (small tiles) ==== */}
-      <section
-        aria-label="The Amrut journey — mill, farms, sunshine"
-        className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-10 lg:py-14"
-      >
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6 reveal-hidden">
-          <div className="flex flex-col gap-1.5">
-            <span className="text-xs font-bold tracking-[0.2em] uppercase text-teal-deep">
-              Reel · 3 ways Amrut is made
-            </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-ink leading-tight">
-              Mill · Farms · Sunshine — <span className="text-jaggery">all in one sweep.</span>
-            </h2>
-          </div>
-          <p className="text-sm text-ink/60 max-w-md">
-            Three tiny loops, one story. Tap any tile to feel the buzz of the karkhana.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-          {VIDEOS.map((v, i) => {
-            const Icon = v.icon;
-            return (
-              <div
-                key={v.src}
-                className="group relative reveal-hidden-scale"
-                style={{ animationDelay: `${i * 80}ms` }}
-              >
-                <div className="absolute -inset-3 bg-gradient-to-br from-teal-light/40 via-gold-light/30 to-jaggery-light/40 blur-3xl opacity-60 group-hover:opacity-90 animate-pulse-soft transition-opacity duration-700" aria-hidden="true" />
-                <div className="relative aspect-[4/3] overflow-hidden ring-1 ring-ink/10 shine-wrap transition-all duration-600 ease-cinematic group-hover:ring-ink/20 group-hover:-translate-y-1" style={{ borderRadius: '22px' }}>
-                  <video
-                    className="w-full h-full object-cover"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                  >
-                    <source src={v.src} type="video/mp4" />
-                  </video>
-                  <div className="absolute inset-0 pointer-events-none" aria-hidden="true" style={{
-                    background: 'linear-gradient(180deg, rgba(20,34,30,0.18) 0%, transparent 40%, rgba(20,34,30,0.72) 100%)'
-                  }} />
-                  <div className={`absolute top-3 left-3 inline-flex items-center gap-2 px-3 py-1.5 backdrop-blur-md ring-1 ring-cream/20 ${v.chip} shine-wrap`} style={{ borderRadius: '999px' }}>
-                    <Icon className="w-3.5 h-3.5 text-cream" aria-hidden="true" />
-                    <span className="text-[10px] font-bold tracking-[0.18em] uppercase text-cream">
-                      {v.sub}
-                    </span>
-                  </div>
-                  <div className="absolute bottom-3 left-3 right-3 flex items-end justify-between gap-3">
-                    <div className="flex flex-col gap-0.5">
-                      <p className="text-lg sm:text-xl font-extrabold tracking-tight text-cream leading-none" style={{ textShadow: '0 2px 6px rgba(0,0,0,0.55)' }}>
-                        {v.label}
-                      </p>
-                      <p className="text-[11px] text-cream/80">
-                        {i === 0 && 'Where cane becomes crystal.'}
-                        {i === 1 && 'Morning harvest, same day crush.'}
-                        {i === 2 && 'Sunshine in every sugarcane.'}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
       </section>
 
       {/* ==== PROCESS STRIP: 6 steps, pill staircase ==== */}
